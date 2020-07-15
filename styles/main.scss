@@ -15,20 +15,35 @@ $Poppins: 'Poppins', sans-serif;
 body, html {
     padding: 0;
     margin: 0;
+    width: 100%;
+    min-width: 345px;
 }
 
 .container {
-    max-width: 1280px;
+    width: 94%;
     margin: 0 auto;
-    width: 100%;
+
+    @media only screen and (min-width: 640px) {
+        width: 96%;
+    }
+
+    @media only screen and (min-width: 1124px) {
+        max-width: 1280px;
+        width: 100%;
+    }
 }
 
 header {
-    padding-bottom: 96px;
-    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-top: 36px;
     width: 100%;
     z-index: 5;
     overflow: hidden;
+
+    @media only screen and (min-width: 640px) {
+        padding-bottom: 96px;
+        padding-top: 48px;
+    }
 
     &:before {
         content: "";
@@ -65,24 +80,46 @@ header {
         padding-bottom: 70px;
 
         img {
-            width: 200px;
+            width: 116px;
             height: auto;
+
+            @media only screen and (min-width: 640px) {
+                width: 170px;
+            }
+
+            @media only screen and (min-width: 1124px) {
+                width: 200px;
+            }
         }
 
         a {
-            width: 200px;
-            font-size: 14px;
-            line-height: 20px;
+            width: 116px;
+            font-size: 12px;
+            line-height: 16px;
             text-decoration: none;
             color: $VeryDarkCyan;
             font-family: $OpenSans;
             text-align: center;
             font-weight: 700;
-            padding: 14px 64px;
+            padding: 6px 22px;
             background: white;
             border-radius: 24px;
             box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
             transition: all 300ms ease-in-out;
+
+            @media only screen and (min-width: 640px) {
+                width: 170px;
+                font-size: 13px;
+                line-height: 18px;
+                padding: 10px 42px;
+            }
+
+            @media only screen and (min-width: 1124px) {
+                width: 200px;
+                font-size: 14px;
+                line-height: 20px;
+                padding: 14px 64px;
+            }
 
             &:hover {
                 transform: scale(1.1);
@@ -93,9 +130,18 @@ header {
 
     .content {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
+
+        @media only screen and (min-width: 640px) {
+            flex-direction: row;
+        }
+
+        @media only screen and (min-width: 1124px) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
 
         .left {
             display: flex;
@@ -103,23 +149,53 @@ header {
             flex: 1;
 
             h1 {
+                display: flex;
+                position: relative;
                 color: $VeryDarkCyan;
                 font-family: $Poppins;
                 font-weight: 600;
-                font-size: 39px;
-                line-height: 60px;
-                width: 520px;
+                width: 100%;
+                font-size: 29px;
+                line-height: 43px;
                 margin-bottom: 30px;
+                text-align: center;
+
+                @media only screen and (min-width: 640px) {
+                    max-width: 100%;
+                    text-align: left;
+                }
+
+                @media only screen and (min-width: 1124px) {
+                    width: 520px;
+                    font-size: 39px;
+                    line-height: 60px;
+                }
             }
 
             p {
                 color: $VeryDarkCyan;
                 font-family: $OpenSans;
                 font-weight: 400;
-                font-size: 18px;
-                line-height: 26px;
-                width: 520px;
+                font-size: 16px;
+                line-height: 20px;
+                width: 100%;
                 margin-bottom: 30px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+
+                @media only screen and (min-width: 640px) {
+                    text-align: left;
+                    font-size: 17px;
+                    line-height: 24px;
+                    margin-left: 0;
+                }
+
+                @media only screen and (min-width: 1124px) {
+                    width: 520px;
+                    font-size: 18px;
+                    line-height: 26px;
+                }
             }
 
             a {
@@ -137,6 +213,13 @@ header {
                 border-radius: 28px;
                 box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
                 transition: all 300ms ease-in-out;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 30px;
+
+                @media only screen and (min-width: 640px) {
+                    margin-left: 0;
+                }
 
                 &:hover {
                     transform: scale(1.1);
@@ -160,27 +243,63 @@ header {
 
 main {
     background: white;
-    padding-top: 160px;
-    padding-bottom: 160px;
     display: flex;
     flex-direction: column;
+    padding-top: 45px;
+    padding-bottom: 45px;
+
+    @media only screen and (min-width: 640px) {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    @media only screen and (min-width: 1124px) {
+        padding-top: 160px;
+        padding-bottom: 160px;
+    }
 
     .card {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        height: 440px;
         width: 100%;
         margin-bottom: 40px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
 
+        @media only screen and (min-width: 640px) {
+            flex-direction: row;
+            justify-content: space-between;
+            max-height: 440px;
+        }
+
+        &.reverse {
+            flex-direction: column-reverse;
+
+            @media only screen and (min-width: 640px) {
+                flex-direction: row;
+            }
+        }
+
         .left, .right {
             flex: 1;
             padding: 24px;
+            text-align: center;
+
+            @media only screen and (min-width: 640px) {
+                text-align: left;
+            }
 
             &.text {
-                padding: 120px;
+                padding: 20px;
+
+                @media only screen and (min-width: 640px) {
+                    padding: 60px;
+                }
+
+                @media only screen and (min-width: 1124px) {
+                    padding: 120px;
+                }
             }
 
             h2 {
@@ -190,6 +309,7 @@ main {
                 line-height: 32px;
                 max-width: 520px;
                 margin-bottom: 30px;
+                width: 100%;
             }
 
             p {
@@ -198,12 +318,14 @@ main {
                 font-weight: 400;
                 font-size: 18px;
                 line-height: 26px;
-                width: 520px;
+                max-width: 520px;
+                width: 100%;
                 margin-bottom: 30px;
             }
 
             img {
                 max-width: 420px;
+                width: 100%;
                 height: auto;
             }
         }
@@ -221,10 +343,10 @@ footer {
     nav {
         .card {
             width: 100%;
-            height: 280px;
-            width: 800px;
             display: flex;
-            margin: -330px auto 0;
+            height: 120px;
+            max-width: 94%;
+            margin: -245px auto 0;
             flex-direction: column;
             justify-content: center;
             align-content: center;
@@ -232,31 +354,63 @@ footer {
             text-align: center;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            height: 210px;
+
+            @media only screen and (min-width: 640px) {
+                max-width: 96%;
+                margin: -290px auto 0;
+                height: 210px;
+            }
+
+            @media only screen and (min-width: 1124px) {
+                max-width: 800px;
+                margin: -330px auto 0;
+                height: 280px;
+            }
 
             h3 {
                 font-family: $Poppins;
                 font-weight: 600;
                 font-size: 32px;
-                line-height: 42px;
+                line-height: 36px;
                 color: $VeryDarkCyan;
                 margin-bottom: 40px;
+
+                @media only screen and (min-width: 640px) {
+                    font-size: 32px;
+                    line-height: 42px;
+                }
             }
 
             a {
                 font-family: $OpenSans;
                 font-weight: 700;
-                font-size: 20px;
-                line-height: 24px;
                 color: white;
-                height: 80px;
-                width: 400px;
+                font-size: 12px;
+                line-height: 14px;
+                max-height: 48px;
+                width: 100%;
+                max-width: 240px;
                 margin: 0 auto;
-                padding: 28px 94px;
+                padding: 17px 39px;
                 background: $PrimaryPink;
                 border-radius: 40px;
                 text-decoration: none;
                 box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
                 transition: all 300ms ease-in-out;
+
+                @media only screen and (min-width: 640px) {
+                    font-size: 16px;
+                    line-height: 18px;
+                }
+
+                @media only screen and (min-width: 1124px) {
+                    max-width: 400px;
+                    max-height: 80px;
+                    font-size: 20px;
+                    line-height: 24px;
+                    padding: 28px 94px;
+                }
 
                 &:hover {
                     transform: scale(1.1);
@@ -276,12 +430,18 @@ footer {
 
         &.copy {
             margin: 35px 0;
+            margin-right: auto;
             margin-left: auto;
             width: fit-content;
             font-family: $Poppins;
             color: $VeryPaleCyan;
             font-size: 12px;
             line-height: 20px;
+
+            @media only screen and (min-width: 1124px) {
+                margin-right: 0;
+                margin-left: auto;
+            }
         }
     }
 
@@ -306,8 +466,12 @@ footer {
 
     .row {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
+
+        @media only screen and (min-width: 640px) {
+            flex-direction: row;
+        }
 
         .col-4 {
             display: flex;
